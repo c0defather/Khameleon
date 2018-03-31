@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <c0defather.chameleon.UnmaskRelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/control"
+        android:background="#000000">
+
+    </c0defather.chameleon.UnmaskRelativeLayout>
+    <RelativeLayout
+        android:id="@+id/control"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+        <View
+            android:id="@+id/webButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/chrome_white"
+            android:layout_marginLeft="10dp" />
+        <SeekBar
+            android:theme="@style/AppTheme"
+            android:id="@+id/alphaSeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/grab"
+            android:layout_toRightOf="@id/webButton"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:progressBackgroundTint="@color/colorPrimaryDark"
+            android:progressTint="@color/colorAccent"
+            android:thumbTint="@color/colorAccent"
+            android:progress="50"
+            android:max = "100"/>
+        <View
+            android:id="@+id/grab"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/eye_white2"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+</RelativeLayout>
