@@ -3,6 +3,7 @@ package c0defather.chameleon;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.os.IBinder;
@@ -20,6 +21,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 /**
  * Created by c0defather on 3/29/18.
@@ -215,5 +217,20 @@ public class ChameleonService extends Service {
         isRunning = false;
         if (topView != null) windowManager.removeView(topView);
         if (edge != null) windowManager.removeView(edge);
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Проверяем ориентацию экрана
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            onDestroy();
+            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            onCreate();
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            onDestroy();
+            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            onCreate();
+        }
     }
 }
